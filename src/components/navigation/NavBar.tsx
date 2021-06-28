@@ -1,6 +1,25 @@
 const NavBar = () => {
-  // 좌우로 일정 길이 이하가 되면 햄버거로
-  return <div className="w-full h-12 bg-green-100">This is Navigation Bar</div>;
+  const PageList = [
+    { name: "로그아웃", href: "signout" },
+    { name: "로그인", href: "/signin" },
+    { name: "글쓰기", href: "/write/post" },
+    { name: "관리", href: "/setting" },
+  ];
+
+  return (
+    <div className="flex justify-between w-full h-12 bg-green-100">
+      This is Navigation Bar
+      <ul className="flex">
+        {PageList.map((v) => {
+          return (
+            <li className="mx-2" key={v.href}>
+              {v.name}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
 
 export default NavBar;
