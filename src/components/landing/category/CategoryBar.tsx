@@ -1,8 +1,7 @@
 const CategoryBar = () => {
-  //card 로 항목들 돌리기~
   return (
-    <div className="w-full h-48 min-h-full bg-blue-200">
-      This is CategoryBar
+    <div className="w-full h-full bg-gray-50">
+      {/* // Todo : 카테궈리 카드 만들기~ */} This is CategoryBar
     </div>
   );
 };

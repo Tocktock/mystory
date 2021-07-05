@@ -7,7 +7,6 @@ export default function Home() {
     <>
       <NavBar></NavBar>
       <Welcome></Welcome>
-      <CategoryBar></CategoryBar>
       <NewPost></NewPost>
     </>
   );
