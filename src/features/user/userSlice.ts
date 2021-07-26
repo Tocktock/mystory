@@ -14,7 +14,6 @@ let initialState: CurrentUserState = {
   email: "",
 } as CurrentUserState;
 
-// immer will ensure mutable
 const UserStateSlice = createSlice({
   name: "userState",
   initialState,

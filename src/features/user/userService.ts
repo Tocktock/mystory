@@ -1,10 +1,11 @@
 import axios, { AxiosResponse } from "axios";
 
 const AUTH_URL = "http://localhost:8080/auth/user";
-const REGISTER_URL = AUTH_URL + "/sign-up";
-const LOGIN_URL = AUTH_URL + "/sign-in";
+export const REGISTER_URL = AUTH_URL + "/sign-up";
+export const LOGIN_URL = AUTH_URL + "/sign-in";
+export const JWT_TOKEN_CHECK_URL = AUTH_URL + "has-token";
 
-const registerReq = async (
+const userRegisterReq = async (
   username: string,
   email: string,
   password: string
@@ -29,4 +30,11 @@ const loginReq = async (email: string, password: string) => {
     .catch((err) => console.log(`login failed error : ${err}`));
 };
 
-export { registerReq, loginReq };
+const tokenCheckReq = async (accessToken: string) => {
+  await axios.get(JWT_TOKEN_CHECK_URL, {
+    headers: { Authorization: ` Bearer ${accessToken}` },
+  });
+  return true;
+};
+
+export { userRegisterReq, loginReq, tokenCheckReq };
