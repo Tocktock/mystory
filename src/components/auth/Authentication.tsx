@@ -44,7 +44,7 @@ const Auth: React.FC<Props> = (props) => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const username = usernameRef.current.value;
-    let result = await registerReq(username, email, password);
+    let result = await userRegisterReq(username, email, password);
     if (result === undefined) return;
     resetInput();
   };

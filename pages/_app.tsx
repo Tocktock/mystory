@@ -3,40 +3,41 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../src/features/store";
 import { CookiesProvider } from "react-cookie";
+import ModalBackground from "../src/components/modal/ModalBackground";
 
 export default function App({ Component, pageProps }) {
-  if (cookies.user && !userState.isAuthenticated) {
-    const result = axios
-      .post(
-        "http://localhost:8080/auth/user",
-        {},
-        {
-          headers: { Authorization: ` Bearer ${cookies.user}` },
-        }
-      )
-      .then((res) => {
-        if (res.data.username)
-          dispatch(
-            userAuthenticated({
-              accessToken: cookies.user,
-              isAuthenticated: true,
-              username: res.data.username,
-              email: res.data.email,
-            })
-          );
-        return res.data;
-      });
-  } else if (!cookies.user && userState.isAuthenticated) {
-    dispatch(
-      userAuthenticated({
-        accessToken: "",
-        isAuthenticated: false,
-        username: "",
-        email: "",
-      })
-    );
-    axios.defaults.headers.common["Authorization"] = "";
-  }
+  // if (cookies.user && !userState.isAuthenticated) {
+  //   const result = axios
+  //     .post(
+  //       "http://localhost:8080/auth/user",
+  //       {},
+  //       {
+  //         headers: { Authorization: ` Bearer ${cookies.user}` },
+  //       }
+  //     )
+  //     .then((res) => {
+  //       if (res.data.username)
+  //         dispatch(
+  //           userAuthenticated({
+  //             accessToken: cookies.user,
+  //             isAuthenticated: true,
+  //             username: res.data.username,
+  //             email: res.data.email,
+  //           })
+  //         );
+  //       return res.data;
+  //     });
+  // } else if (!cookies.user && userState.isAuthenticated) {
+  //   dispatch(
+  //     userAuthenticated({
+  //       accessToken: "",
+  //       isAuthenticated: false,
+  //       username: "",
+  //       email: "",
+  //     })
+  //   );
+  //   axios.defaults.headers.common["Authorization"] = "";
+  // }
 
   return (
     <CookiesProvider>
@@ -48,6 +49,7 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Provider store={store}>
+        <ModalBackground></ModalBackground>
         <Component {...pageProps} />
       </Provider>
     </CookiesProvider>

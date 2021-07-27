@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 let initialState = {
-  displayStatus: "hidden",
+  displayStatus: "block",
 };
 
 const ModalState = createSlice({
