@@ -1,11 +1,13 @@
 import axios, { AxiosResponse } from "axios";
+import { useDispatch } from "react-redux";
+import { setAlarmAndShow, MessageType } from "../alarm/alarmSlice";
 
 const AUTH_URL = "http://localhost:8080/auth/user";
 export const REGISTER_URL = AUTH_URL + "/sign-up";
 export const LOGIN_URL = AUTH_URL + "/sign-in";
 export const JWT_TOKEN_CHECK_URL = AUTH_URL + "has-token";
 
-const userRegisterReq = async (
+const signUpService = async (
   username: string,
   email: string,
   password: string
@@ -18,13 +20,15 @@ const userRegisterReq = async (
     .catch((err) => console.log(`register failed error : ${err}`));
 };
 
-const loginReq = async (email: string, password: string) => {
+const signInService = async (email: string, password: string) => {
   return axios
     .post(LOGIN_URL, { email, password })
     .then((res: AxiosResponse) => {
-      axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${res.data.accessToken}`;
+      if (!res.data.error) {
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${res.data.accessToken}`;
+      }
       return res.data;
     })
     .catch((err) => console.log(`login failed error : ${err}`));
@@ -37,4 +41,4 @@ const tokenCheckReq = async (accessToken: string) => {
   return true;
 };
 
-export { userRegisterReq, loginReq, tokenCheckReq };
+export { signUpService, signInService, tokenCheckReq };

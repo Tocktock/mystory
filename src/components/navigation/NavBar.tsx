@@ -30,7 +30,7 @@ const NavBar = (props) => {
           {pageListState &&
             pageListState.map((v) => {
               return (
-                <Link href={v.href}>
+                <Link href={v.href} key={v.href}>
                   <a>
                     <li className="mx-4" key={v.href}>
                       <span className="text-lg font-bold text-gray-200 hover:text-gray-500">
