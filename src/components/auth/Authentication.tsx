@@ -13,7 +13,7 @@ import { MessageType, setAlarmAndShow } from "../../features/alarm/alarmSlice";
 
 interface Props {}
 
-const Auth: React.FC<Props> = (props) => {
+const Authentication: React.FC<Props> = (props) => {
   const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false);
   const dispatch = useDispatch();
   const emailRef = useRef<HTMLInputElement>(null);
@@ -204,4 +204,4 @@ const Auth: React.FC<Props> = (props) => {
   );
 };
 
-export default Auth;
+export default Authentication;

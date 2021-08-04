@@ -15,7 +15,7 @@ const ModalAuth: React.FC<Props> = (props) => {
     (state: RootState) => state.modalState
   );
   function hideModalFn(e: SyntheticEvent) {
-    if (e.target != e.currentTarget) return;
+    e.preventDefault();
     dispatch(hideModal());
   }
   return (
