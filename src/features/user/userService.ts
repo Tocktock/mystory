@@ -2,10 +2,11 @@ import axios, { AxiosResponse } from "axios";
 import { useDispatch } from "react-redux";
 import { setAlarmAndShow, MessageType } from "../alarm/alarmSlice";
 
-const AUTH_URL = "http://localhost:8080/auth/user";
+const AUTH_URL = "http://localhost:8090";
+
 export const REGISTER_URL = AUTH_URL + "/sign-up";
 export const LOGIN_URL = AUTH_URL + "/sign-in";
-export const JWT_TOKEN_CHECK_URL = AUTH_URL + "has-token";
+export const JWT_TOKEN_CHECK_URL = AUTH_URL + "/has-token";
 
 const signUpService = async (
   username: string,
