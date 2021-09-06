@@ -1,45 +1,44 @@
-import axios, { AxiosResponse } from "axios";
-import { useDispatch } from "react-redux";
-import { setAlarmAndShow, MessageType } from "../alarm/alarmSlice";
+import axios, {AxiosResponse} from "axios";
 
-const AUTH_URL = "http://localhost:8090";
+const AUTH_URL = "http://localhost:8080";
 
 export const REGISTER_URL = AUTH_URL + "/sign-up";
 export const LOGIN_URL = AUTH_URL + "/sign-in";
 export const JWT_TOKEN_CHECK_URL = AUTH_URL + "/has-token";
 
 const signUpService = async (
-  username: string,
-  email: string,
-  password: string
+    username: string,
+    email: string,
+    password: string
 ) => {
-  return axios
-    .post(REGISTER_URL, { username, email, password })
-    .then((res: AxiosResponse) => {
-      return res.data;
-    })
-    .catch((err) => console.log(`register failed error : ${err}`));
-};
+    return axios
+        .post(REGISTER_URL, {username, email, password})
+        .then((res: AxiosResponse) => {
+            return res.data;
+        })
+        .catch((err) => {
+            return {err: `회원가입 실패 : ${err}`}
+        })
+}
+
 
 const signInService = async (email: string, password: string) => {
-  return axios
-    .post(LOGIN_URL, { email, password })
-    .then((res: AxiosResponse) => {
-      if (!res.data.error) {
-        axios.defaults.headers.common[
-          "Authorization"
-        ] = `Bearer ${res.data.accessToken}`;
-      }
-      return res.data;
-    })
-    .catch((err) => console.log(`login failed error : ${err}`));
+    return axios
+        .post(LOGIN_URL, {email, password})
+        .then((res: AxiosResponse) => {
+            axios.defaults.headers.common["Authorization"] = `Bearer ${res.data}`;
+            return res.data;
+        })
+        .catch((err) => {
+            return {err: `로그인 실패 : ${err}`}
+        })
 };
 
 const tokenCheckReq = async (accessToken: string) => {
-  await axios.get(JWT_TOKEN_CHECK_URL, {
-    headers: { Authorization: ` Bearer ${accessToken}` },
-  });
-  return true;
+    await axios.get(JWT_TOKEN_CHECK_URL, {
+        headers: {Authorization: ` Bearer ${accessToken}`},
+    });
+    return true;
 };
 
-export { signUpService, signInService, tokenCheckReq };
+export {signUpService, signInService, tokenCheckReq};
