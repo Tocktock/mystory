@@ -48,9 +48,9 @@ const NavBar = () => {
                 <div className="flex">
                     {!userState.isAuthenticated && (
                         <button className="mx-4" onClick={() => dispatch(showModal())}>
-              <span className="text-lg font-bold text-gray-200 hover:text-gray-500">
-                로그인
-              </span>
+                          <span className="text-lg font-bold text-gray-200 hover:text-gray-500">
+                            로그인
+                          </span>
                         </button>
                     )}
                 </div>
