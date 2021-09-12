@@ -13,10 +13,7 @@ const NavBar = () => {
     useEffect(() => {
         setPageListState(
             [
-                {name: "블로그", href: "/post"},
-                {name: "aaa", href: "/postbbb"},
-                {name: "bbb", href: "/postaaa"},
-                userState.isAuthenticated && {name: "글쓰기", href: "/write/post"},
+                userState.isAuthenticated && {name: "글쓰기", href: "/write"},
                 userState.isAuthenticated && {name: "관리", href: "/setting"},
             ].filter((v) => v)
         );
