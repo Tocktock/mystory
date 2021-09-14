@@ -10,15 +10,13 @@ const WriteBody = () => {
   };
 
   return (
-    <div className="h-1/2">
-      <div className="w-full h-full bg-white">
-        <div
-          contentEditable
-          placeholder="enter some text"
-          className="w-full h-full from-current"
-          onKeyDown={setPreveiw}
-        ></div>
-      </div>
+    <div className="h-3/4 w-full bg-white">
+      <div
+        contentEditable
+        placeholder="enter some text"
+        className="w-full h-full from-current focus:outline-none p-3"
+        onKeyUp={setPreveiw}
+      ></div>
     </div>
   );
 };

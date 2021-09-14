@@ -1,7 +1,11 @@
 const WriteHeader = () => {
   return (
-    <div className="">
-      {/* // Todo : 카테궈리 카드 만들기~ */} This is Header
+    <div className="flex">
+      <div
+        contentEditable
+        placeholder="Header"
+        className="placeholder-gray-300 w-full h-full from-current p-4 text-4xl focus:outline-none"
+      ></div>
     </div>
   );
 };

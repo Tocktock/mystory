@@ -1,15 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface MarkDownPreview {
+interface PublishBody {
+  header: string;
   content: string;
+  category: string;
+  tag: string;
 }
 
 let initialState = {
   content: "",
-} as MarkDownPreview;
+} as PublishBody;
 
-const MarkdownState = createSlice({
-  name: "markdownState",
+const PublishState = createSlice({
+  name: "publishState",
   initialState,
   reducers: {
     updateContent(state, action: PayloadAction<string>) {
@@ -18,5 +21,5 @@ const MarkdownState = createSlice({
   },
 });
 
-export const { updateContent } = MarkdownState.actions;
-export default MarkdownState.reducer;
+export const { updateContent } = PublishState.actions;
+export default PublishState.reducer;
