@@ -8,9 +8,10 @@ const WritePreview = () => {
   const markdownState = useSelector((state: RootState) => state.markdownState);
   return (
     <div className="prose">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-        {markdownState.content}
-      </ReactMarkdown>
+      <ReactMarkdown
+        children={markdownState.content}
+        remarkPlugins={[remarkGfm]}
+      ></ReactMarkdown>
     </div>
   );
 };
