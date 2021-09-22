@@ -7,7 +7,7 @@ import { RootState } from "../../features/rootReducer";
 const WritePreview = () => {
   const markdownState = useSelector((state: RootState) => state.markdownState);
   return (
-    <div className="prose">
+    <div className="prose flex flex-col">
       <ReactMarkdown
         children={markdownState.content}
         remarkPlugins={[remarkGfm]}
