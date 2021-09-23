@@ -1,3 +1,4 @@
+const { yellow } = require("tailwindcss/colors");
 const colors = require("tailwindcss/colors");
 module.exports = {
   purge: [
@@ -18,7 +19,6 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -29,6 +29,13 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
+      coYellow: {
+        100: "#FFFF96",
+        200: "#FFFA52",
+        300: "#FFFF00",
+        400: "#FEFC1D",
+        500: "#FFDC00",
+      },
     },
     spacing: {
       px: "1px",

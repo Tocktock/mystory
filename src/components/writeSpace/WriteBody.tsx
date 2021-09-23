@@ -28,7 +28,7 @@ const WriteBody = () => {
       <textarea
         ref={textRef}
         placeholder="enter some text"
-        className="w-full h-full from-current focus:outline-none p-3"
+        className="w-full h-full from-current focus:outline-none p-5"
         onKeyUp={setPreveiw}
         onKeyPress={keypress}
       ></textarea>

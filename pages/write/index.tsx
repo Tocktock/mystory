@@ -7,7 +7,7 @@ import WriteActionBar from "../../src/components/writeSpace/WritwActionBar";
 export default function Home() {
   return (
     <div className="flex mx-4">
-      <div className="h-screen w-1/2 bg-red-200">
+      <div className="h-screen w-1/2 ">
         <WriteHeader />
         <WriteTag />
         <WriteActionBar />
@@ -21,7 +21,7 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className="h-screen w-1/2 bg-gray-50">
+      <div className="h-screen w-1/2 overflow-auto bg-gray-50">
         <WritePreview></WritePreview>
       </div>
     </div>
