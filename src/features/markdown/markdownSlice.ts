@@ -13,7 +13,6 @@ const MarkdownState = createSlice({
   initialState,
   reducers: {
     updateContent(state, action: PayloadAction<string>) {
-      console.log(action.payload);
       state.content = action.payload;
     },
   },
