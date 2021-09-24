@@ -37,9 +37,9 @@ const WriteTag = () => {
           </button>
         );
       })}
-      <label htmlFor=""></label>
       <input
-        className="border rounded-xl flex w-32 outline-none px-4"
+        placeholder="category"
+        className="border rounded-xl flex w-32 outline-none px-4 bl"
         ref={textRef}
         onKeyPress={newKeyPress}
       ></input>

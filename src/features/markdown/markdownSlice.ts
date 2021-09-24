@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface MarkDownPreview {
   content: string;
   category: string[];
+  title: string;
 }
 
 let initialState = {
   content: "",
   category: [],
+  title: "",
 } as MarkDownPreview;
 
 const MarkdownState = createSlice({
@@ -21,12 +23,14 @@ const MarkdownState = createSlice({
       state.category.push(action.payload);
     },
     deleteCategory(state, action: PayloadAction<string>) {
-      console.log(action.payload);
       state.category = state.category.filter((v) => v != action.payload);
+    },
+    updateTitle(state, action: PayloadAction<string>) {
+      state.title = action.payload;
     },
   },
 });
 
-export const { updateContent, addCategory, deleteCategory } =
+export const { updateContent, addCategory, deleteCategory, updateTitle } =
   MarkdownState.actions;
 export default MarkdownState.reducer;

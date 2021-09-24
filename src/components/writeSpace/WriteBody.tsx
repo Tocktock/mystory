@@ -24,7 +24,7 @@ const WriteBody = () => {
   };
 
   return (
-    <div className="h-3/4 w-full bg-white border-l-2 border-r-2 overflow-auto">
+    <div className="h-3/4 w-full bg-white border-2 overflow-auto">
       <textarea
         ref={textRef}
         placeholder="enter some text"
