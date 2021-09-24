@@ -8,13 +8,13 @@ const ModalAuth: React.FC<Props> = (props) => {
   // for test
   const dispatch = useDispatch();
 
-  const { modalDisplay } = useSelector((state: RootState) => state.modalState);
+  const { displayStatus } = useSelector((state: RootState) => state.modalState);
 
   return (
     <div
       className={
         "flex fixed inset-0 overflow-y-auto z-20 justify-center items-center min-h-full text-center " +
-        modalDisplay
+        displayStatus
       }
     >
       {/* background overlay */}
