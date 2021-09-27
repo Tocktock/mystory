@@ -14,9 +14,9 @@ const ModalState = createSlice({
         hideModal(state) {
             state.displayStatus = "hidden";
         },
-        showModal(state) {
+        showModal(state) { 
             state.displayStatus = "block";
-        },
+        },  
     },
 });
 
