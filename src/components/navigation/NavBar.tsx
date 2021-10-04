@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {RootState} from "../../features/rootReducer";
 import {showModal} from "../../features/modal/modalSlice";
+import axios from "axios";
 
 const NavBar = () => {
     const dispatch = useDispatch();
@@ -18,6 +19,10 @@ const NavBar = () => {
             ].filter((v) => v)
         );
     }, [userState.isAuthenticated]);
+
+    const test = async () => {
+        await axios.get("http://localhost:8080/jwt-auth").then(v=>console.log(v))
+    }
 
     return (
         <div className="absolute flex w-full h-12 mt-12 ">
@@ -40,6 +45,9 @@ const NavBar = () => {
                             );
                         })}
                     </ul>
+                </div>
+                <div className="flex">
+                        <button onClick={test} > this is test button</button>
                 </div>
 
                 <div className="flex">

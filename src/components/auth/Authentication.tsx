@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useCookies } from 'react-cookie';
-import { toggleModalDisplay } from '../../features/modal/modalSlice';
-import { signInService, signUpService } from '../../features/user/userService';
-import { userAuthenticated } from '../../features/user/userSlice';
-import { MessageType, setAlarmAndShow } from '../../features/alarm/alarmSlice';
+import { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useCookies } from "react-cookie";
+import { toggleModalDisplay } from "../../features/modal/modalSlice";
+import { signInService, signUpService } from "../../features/user/userService";
+import { userAuthenticated } from "../../features/user/userSlice";
+import { MessageType, setAlarmAndShow } from "../../features/alarm/alarmSlice";
 
 interface Props {}
 
@@ -14,13 +14,13 @@ const Authentication: React.FC<Props> = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const usernameRef = useRef<HTMLInputElement>(null);
-  const [cookies, setCookie] = useCookies(['Authorization']);
+  const [cookies, setCookie] = useCookies(["Authorization"]);
   // const userState = useSelector((state: RootState) => state.userState);
 
   const resetInput = () => {
-    emailRef.current.value = '';
-    passwordRef.current.value = '';
-    if (showRegisterForm) usernameRef.current.value = '';
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
+    if (showRegisterForm) usernameRef.current.value = "";
     setShowRegisterForm(false);
   };
 
@@ -34,7 +34,7 @@ const Authentication: React.FC<Props> = () => {
     const result = await signUpService(
       usernameRef.current.value,
       emailRef.current.value,
-      passwordRef.current.value,
+      passwordRef.current.value
     );
     if (result.err) signUpFail(result.error);
     else signUpSuccess();
@@ -42,7 +42,7 @@ const Authentication: React.FC<Props> = () => {
   const signInReq = async () => {
     const result = await signInService(
       emailRef.current.value,
-      passwordRef.current.value,
+      passwordRef.current.value
     );
     if (result.err) signInFail(result.err);
     else signInSuccess(result);
@@ -51,9 +51,9 @@ const Authentication: React.FC<Props> = () => {
   function signUpSuccess() {
     dispatch(
       setAlarmAndShow({
-        message: '가입 성공!!',
+        message: "가입 성공!!",
         type: MessageType.success,
-      }),
+      })
     );
     setShowRegisterForm(false);
     resetInput();
@@ -74,12 +74,12 @@ const Authentication: React.FC<Props> = () => {
         isAuthenticated: true,
         username: result.username,
         email: result.email,
-      }),
+      })
     );
     dispatch(toggleModalDisplay());
 
-    setCookie('Authorization', result.accessToken, {
-      path: '/',
+    setCookie("Authorization", result.accessToken, {
+      path: "/",
       maxAge: 86400,
       httpOnly: true,
     });
@@ -177,7 +177,7 @@ const Authentication: React.FC<Props> = () => {
               />
             </svg>
           </span>
-          {showRegisterForm ? '가입하기' : '로그인하기'}
+          {showRegisterForm ? "가입하기" : "로그인하기"}
         </button>
         <button
           className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -186,7 +186,7 @@ const Authentication: React.FC<Props> = () => {
             setShowRegisterForm(!showRegisterForm);
           }}
         >
-          {showRegisterForm ? '로그인하기' : '가입하기'}
+          {showRegisterForm ? "로그인하기" : "가입하기"}
         </button>
         <div className="text-sm text-center py-2">
           <a
