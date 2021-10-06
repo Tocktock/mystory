@@ -21,13 +21,14 @@ export default function Home() {
     </div>
   );
 }
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const resultStatus = await axios
-    .get('http://localhost:8080/jwt-auth')
-    .then((v) => v.status)
-    .catch((err) => err);
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const cookieReq = ctx.req ? ctx.req.headers.cookie : null
+  const result = await axios.get(process.env.SERVER_URI+"/jwt-auth",{
+    headers: {
+        Cookie : cookieReq+';',
+    }})
 
-  if (resultStatus != 200) {
+  if (result.status != 200) {
     return {
       redirect: {
         destination: '/',

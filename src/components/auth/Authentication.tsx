@@ -78,10 +78,9 @@ const Authentication: React.FC<Props> = () => {
     );
     dispatch(toggleModalDisplay());
 
-    setCookie("Authorization", result.accessToken, {
+    setCookie("Authorization",`${result.accessToken}`, {
       path: "/",
       maxAge: 86400,
-      httpOnly: true,
     });
     resetInput();
   }

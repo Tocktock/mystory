@@ -25,7 +25,6 @@ const signInService = async (email: string, password: string) => {
   return axios
     .post(LOGIN_URL, { email, password })
     .then((res: AxiosResponse) => {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${res.data}`;
       return res.data;
     })
     .catch((err) => {
