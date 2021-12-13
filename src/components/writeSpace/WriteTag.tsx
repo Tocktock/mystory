@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import {  useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addCategory,
@@ -11,11 +11,11 @@ const WriteTag = () => {
   const textRef = useRef<HTMLInputElement>(null);
   const markdownState = useSelector((state: RootState) => state.markdownState);
 
-  const newKeyPress = (e) => {
+  const newKeyPress = (e ) => {
     if (e.code == "Enter") {
       e.preventDefault();
-      dispatch(addCategory(textRef.current.value));
-      textRef.current.value = "";
+      dispatch(addCategory(textRef.current!.value));
+      textRef.current!.value = "";
     }
   };
 

@@ -6,10 +6,10 @@ import { useCookies } from "react-cookie";
 
 export default function Home() {
   return (
-    <>
+    <div className="flex w-full h-full">
       <NavBar />
       <Welcome />
-      <NewPost />
-    </>
+      {/* <NewPost /> */}
+    </div>
   );
 }
