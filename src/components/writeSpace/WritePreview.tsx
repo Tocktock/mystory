@@ -9,9 +9,10 @@ const WritePreview = () => {
   return (
     <div className="prose flex flex-col p-5 ">
       <ReactMarkdown
-        children={markdownState.content}
         remarkPlugins={[remarkGfm]}
-      ></ReactMarkdown>
+      >
+        {markdownState.content}
+      </ReactMarkdown>
     </div>
   );
 };

@@ -5,8 +5,6 @@ import store from "../src/features/store";
 import {CookiesProvider} from "react-cookie";
 import ModalBackground from "../src/components/modal/ModalBackground";
 import Alarm from "../src/components/alarm/Alarm";
-import App from 'next/app'
-import axios from "axios";
 
 export default function MyApp({Component, pageProps}) {
     return (
@@ -28,14 +26,14 @@ export default function MyApp({Component, pageProps}) {
     );
 }
 
-MyApp.getInitialProps = async (appContext: AppContext) => {
-    const appProps = await App.getInitialProps(appContext)
-    const {ctx} = appContext;
-    const cookieReq = ctx.req ? ctx.req.headers.cookie : null
-    await axios.get(process.env.SERVER_URI+"/jwt-auth",{
-        headers: {
-            Cookie : cookieReq+';',
-        }
-    }).then((v)=>console.log(v.data)).catch((v)=>console.log(v))
-    return {...appProps}
-}
+// MyApp.getInitialProps = async (appContext: AppContext) => {
+//     const appProps = await App.getInitialProps(appContext)
+//     const {ctx} = appContext;
+//     const cookieReq = ctx.req ? ctx.req.headers.cookie : null
+//     cookieReq != null && await axios.get(process.env.SERVER_URI+"/jwt-auth",{
+//         headers: {
+//             Cookie : cookieReq+';',
+//         }
+//     }).then((v)=>v).catch(v=>v)
+//     return {...appProps}
+// }
