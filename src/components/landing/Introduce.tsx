@@ -3,8 +3,8 @@ import Image from "next/image"
 
 const Introduce = () => {
     return (
-        <div className="relative flex h-80 border-2 justify-center">
-            <figure className="md:flex bg-gray-100 rounded-xl p-8 md:p-0 my-4 shadow-2xl">
+        <div className="relative flex h-80 border-2 justify-center my-24">
+            <figure className="md:flex bg-gray-100 rounded-xl p-8 md:p-0 shadow-2xl">
                 <picture className="hidden md:flex items-center">
                     <Image
                         src="/images/welcomeCat.png"

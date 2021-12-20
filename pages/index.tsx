@@ -2,7 +2,7 @@ import MyWord from "../src/components/landing/MyWord";
 import PostSeries from "../src/components/landing/PostSeries";
 import Introduce from "../src/components/landing/Introduce";
 import ManyangGuremGrid from "../src/components/landing/ManyangGurem";
-import GoTo from "../src/components/landing/GoTo";
+import ManyangGuremIntroduce from "../src/components/landing/ManyangGuremIntroduce";
 
 export default function Home() {
   return (
@@ -13,8 +13,11 @@ export default function Home() {
         </div>
         <MyWord />
         <Introduce></Introduce>
-        <ManyangGuremGrid></ManyangGuremGrid>
+        <ManyangGuremIntroduce></ManyangGuremIntroduce>
       </header>
+      <section >
+        <ManyangGuremGrid></ManyangGuremGrid>
+      </section>
     </div>
   );
 }
