@@ -22,10 +22,11 @@ const ManyangGuremIntroduceCard = ({ imgSrc, title, description }) => {
             </picture>
             {/* 글자 백그라운드 ㅓㅊ리. */}
             <figcaption className={"absolute bottom-1/4 left-1/4 font-medium opacity-0 ease-in-out duration-300 " + captionState} ref={capRef}>
-                <div className="text-gray-100 font-bold text-xl">
+                <div className=""></div>
+                <div className="z-20 font-bold text-xl text-white">
                     {title}
                 </div>
-                <div className="text-indigo-50">
+                <div className="text-white">
                     {description}
                 </div>
             </figcaption>

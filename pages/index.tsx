@@ -17,6 +17,7 @@ export default function Home() {
       </header>
       <section >
         <ManyangGuremGrid></ManyangGuremGrid>
+        <PostSeries></PostSeries>
       </section>
     </div>
   );
